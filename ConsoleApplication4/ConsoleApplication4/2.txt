@@ -1,0 +1,12 @@
+selection sort 20
+linked list           20
+algorithm          10
+kostenurka 10
+ninja 12
+maimuna 13
+usta 12
+banan 2
+portokal 2
+ananas 3
+aspirin 1
+analgin 2

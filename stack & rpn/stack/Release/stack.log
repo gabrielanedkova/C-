@@ -1,0 +1,17 @@
+﻿Build started 11/2/2016 11:31:22 PM.
+     1>Project "C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\stack\stack.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>main.cpp(13): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\Release\stack.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\Release\stack.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\Release\stack.lib" /MACHINE:X86 /SAFESEH Release\main.obj
+         Generating code
+     1>c:\users\gabriela\documents\visual studio 2013\projects\stack\stack\stack.h(52): warning C4715: 'Stack<int>::top' : not all control paths return a value
+         Finished generating code
+         stack.vcxproj -> C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\Release\stack.exe
+     1>Done Building Project "C:\Users\Gabriela\Documents\Visual Studio 2013\Projects\stack\stack\stack.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.74

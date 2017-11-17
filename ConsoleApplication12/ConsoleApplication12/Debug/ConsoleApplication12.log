@@ -1,0 +1,14 @@
+﻿Build started 10/29/2017 1:56:43 PM.
+     1>Project "C:\Users\Gabriela\documents\visual studio 2013\Projects\ConsoleApplication12\ConsoleApplication12\ConsoleApplication12.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt maincpp.cpp
+         maincpp.cpp
+     1>c:\users\gabriela\documents\visual studio 2013\projects\consoleapplication12\consoleapplication12\header.h(5): error C2460: 'Person::fr' : uses 'Person', which is being defined
+                 c:\users\gabriela\documents\visual studio 2013\projects\consoleapplication12\consoleapplication12\header.h(2) : see declaration of 'Person'
+     1>c:\users\gabriela\documents\visual studio 2013\projects\consoleapplication12\consoleapplication12\maincpp.cpp(39): error C2440: '=' : cannot convert from 'Person' to 'int'
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>Done Building Project "C:\Users\Gabriela\documents\visual studio 2013\Projects\ConsoleApplication12\ConsoleApplication12\ConsoleApplication12.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.56

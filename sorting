@@ -1,0 +1,225 @@
+#include <iostream>
+
+void swap(int& a, int& b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+void merge(int arr[], int start, int middle, int end)
+{
+	int leftSize = middle - start + 1;
+	int rightSize = end - middle;
+	int* left = new int[leftSize];
+	int* right = new int[rightSize];
+	for (int i = 0; i < leftSize; ++i)
+		left[i] = arr[start + i];
+	for (int i = 0; i < rightSize; ++i)
+		right[i] = arr[middle + i + 1];
+
+	int leftPos = 0;
+	int rightPos = 0;
+	int pos = start;
+	while (leftPos < leftSize && rightPos < rightSize)
+	{
+		if (left[leftPos] <= right[rightPos])
+		{
+			arr[pos] = left[leftPos];
+			++leftPos;
+		}
+		else
+		{
+			arr[pos] = right[rightPos];
+			++rightPos;
+		}
+		++pos;
+	}
+
+	while (leftPos < leftSize)
+	{
+		arr[pos] = left[leftPos];
+		++pos;
+		++leftPos;
+	}
+
+	while (rightPos < rightSize)
+	{
+		arr[pos] = right[rightPos];
+		++pos;
+		++rightPos;
+	}
+
+	delete[] left;
+	delete[] right;
+
+}
+void mergeSort(int arr[], int start, int end)
+{
+	if (start < end)
+	{
+		int middle = start + (end - start) / 2;
+		mergeSort(arr, start, middle);
+		mergeSort(arr, middle + 1, end);
+		merge(arr, start, middle, end);
+	}
+}
+int partition(int arr[], int start, int end)
+{
+	int middleIndex = start + (end - start) / 2;
+	int pivot = arr[middleIndex];
+	swap(arr[middleIndex], arr[end]);
+	int partitionIndex = start;
+	for (int i = start; i < end; ++i)
+	{
+		if (arr[i] <= pivot)
+		{
+			swap(arr[i], arr[partitionIndex]);
+			++partitionIndex;
+		}
+	}
+	swap(arr[partitionIndex], arr[end]);
+	return partitionIndex;
+}
+void quickSort(int arr[], int start, int end)
+{
+	if (start < end)
+	{
+		int partitionIndex = partition(arr, start, end);
+		quickSort(arr, start, partitionIndex - 1);
+		quickSort(arr, partitionIndex + 1, end);
+	}
+}
+
+void selectionSort(int arr[], int start, int end)
+{
+	int min = 0;
+	int max = 0;
+	for (int i = 0; i <= end/2; ++i)
+	{
+		min = i;
+		max = i;
+		for(int j = i + 1; j <= end - i; ++j)
+		{
+			if (arr[j] < arr[min])
+				min = j;
+			else if (arr[j] > arr[max])
+				max = j;
+		}
+		if (arr[i] > arr[min])
+			swap(arr[i], arr[min]);
+		if (max == i)
+			max = min;
+		if (arr[end - i] < arr[max])
+			swap(arr[end - i], arr[max]);
+	}
+}
+
+void print(int arr[], int len)
+{
+	for (int k = 0; k < 14; ++k){
+		std::cout << arr[k] << " ";
+	}
+	std::cout << std::endl;
+}
+
+void insertionSort(int arr[], int start, int end)
+{
+	int key = 0;
+	int pos = 0;
+	for (int i = 1; i <= end; ++i)
+	{
+		key = arr[i];
+		pos = i;
+		for (int j = i ; j > 0; --j)
+		{
+			if (key >= arr[j - 1])
+				break;
+			arr[j] = arr[j - 1];
+			--pos;
+		}
+		arr[pos] = key;
+	}
+}
+
+void bubbleSort(int arr[], int start, int end)
+{
+	for (int i = 0; i < end; ++i)
+	{
+		for (int j = 0; j < end - i; ++j)
+		{
+			if (arr[j] > arr[j + 1])
+				swap(arr[j], arr[j + 1]);
+		}
+	}
+}
+
+void shakerSort(int arr[], int start, int end)
+{
+	bool swapped = true;
+	for (int i = 0; i < end; ++i)
+	{
+		if (!swapped)
+			break;
+		swapped = false;
+		for (int j = i/2; j < end - i / 2; ++j)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(arr[j], arr[j + 1]);
+				swapped = true;
+			}
+		}
+		swapped = false;
+		for (int j = end - i/2; j > 0 + i / 2 ; --j)
+		{
+			if (arr[j] < arr[j - 1])
+
+			{
+				swap(arr[j], arr[j - 1]);
+				swapped = true;
+			}
+		}
+	}
+}
+void heapify(int arr[], int size, int i)
+{
+	int largest = i;
+	int leftChild = 2 * i + 1;
+	int rightChild = 2 * i + 2;
+	if (leftChild<size && arr[leftChild]> arr[largest])
+	{
+		largest = leftChild;
+	}
+	if (rightChild<size && arr[rightChild]> arr[largest])
+	{
+		largest = rightChild;
+	}
+	if (largest != i)
+	{
+		swap(arr[i], arr[largest]);
+		heapify(arr, size, largest);
+	}
+}
+
+void heapSort(int arr[], int dump, int size)
+{
+	for (int i = size + 1 / 2 - 1; i >= 0; --i)
+		heapify(arr, size + 1, i); 
+	for (int i = size; i >= 0; --i)
+	{
+		swap(arr[0], arr[i]);
+		heapify(arr, i, 0);
+	}
+}
+
+int main()
+{
+	int arr[] = { 222,4,24,5,4, 4, 12, -11, 4, 19, 3, 6, 0, 12 };
+	heapSort(arr, 0, 13);
+	for (int i = 0; i < 14; ++i){
+		std::cout << arr[i] << " " << std::endl;
+	}
+
+	system("pause");
+}

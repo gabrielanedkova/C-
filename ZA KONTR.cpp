@@ -158,3 +158,49 @@ std::ostream& operator<< (std::ostream &out, const Point &point)
  
     return out; // return std::ostream so we can chain calls to operator<<
 }
+
+
+friend std::ostream& operator<< (std::ostream &out, const Point &point);
+    friend std::istream& operator>> (std::istream &in, Point &point);
+};
+ 
+std::ostream& operator<< (std::ostream &out, const Point &point)
+{
+    // Since operator<< is a friend of the Point class, we can access Point's members directly.
+    out << "Point(" << point.m_x << ", " << point.m_y << ", " << point.m_z << ")";
+ 
+    return out;
+}
+ 
+std::istream& operator>> (std::istream &in, Point &point)
+{
+    // Since operator>> is a friend of the Point class, we can access Point's members directly.
+    // note that parameter point must be non-const so we can modify the class members with the input values
+    in >> point.m_x;
+    in >> point.m_y;
+    in >> point.m_z;
+ 
+    return in;
+}
+
+Digit& Digit::operator++()
+{
+    // If our number is already at 9, wrap around to 0
+    if (m_digit == 9)
+        m_digit = 0;
+    // otherwise just increment to next number
+    else
+        ++m_digit;
+ 
+    return *this;
+}
+
+int& operator[] (const int index);
+};
+ 
+int& IntList::operator[] (const int index)
+{
+    assert(index >= 0 && index < 10);
+ 
+    return m_list[index];
+

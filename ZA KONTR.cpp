@@ -135,3 +135,26 @@ int main() {
 	cout << (v<b);
 	system("pause");
 }
+///////////
+
+
+friend Cents operator+(const Cents &c1, const Cents &c2);
+Cents operator+(const Cents &c1, const Cents &c2)
+{
+	// use the Cents constructor and operator+(int, int)
+	// we can access m_cents directly because this is a friend function
+	return Cents(c1.m_cents + c2.m_cents);
+}
+
+
+
+friend std::ostream& operator<< (std::ostream &out, const Point &point);
+
+ 
+std::ostream& operator<< (std::ostream &out, const Point &point)
+{
+    // Since operator<< is a friend of the Point class, we can access Point's members directly.
+    out << "Point(" << point.m_x << ", " << point.m_y << ", " << point.m_z << ")"; // actual output done here
+ 
+    return out; // return std::ostream so we can chain calls to operator<<
+}
